@@ -56,5 +56,5 @@ jobs:
         with:
           app-name: 'saifappservice'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_82B309AEA7EF4D4BA45C6B88B45C7231 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B208E5912208460797F00ACDFD48127E }}
           package: .
