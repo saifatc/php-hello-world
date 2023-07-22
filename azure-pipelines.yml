@@ -25,9 +25,9 @@ variables:
 stages:
 - stage: Archive
   displayName: Archive stage
- jobs: 
- — job: Archive
- displayName: Archive
+  jobs: 
+  — job: Archive
+  displayName: Archive
  pool:
  vmImage: $(vmImageName)
  steps: 
@@ -36,7 +36,7 @@ stages:
  azureSubscription: $(azureSubscription)
  appName: $(webAppName)
  resourceGroupName: $(resourceGroupName)
- appSettings: |
+ appSettings: | 
  [
  {
  “name”: “SCM_DO_BUILD_DURING_DEPLOYMENT”,
