@@ -11,10 +11,10 @@ variables:
  azureSubscription: ‘5eff872d-2590-48fc-bc71-8bd572296248’
  
  # Web app name
- webAppName: ‘ATC-Staging’
+ webAppName: ‘phptestapp’
  
  # Resource group
- resourceGroupName: ‘ATC-Pipeline-Demo’
+ resourceGroupName: ‘YourResourceGroupName’
  
  # Environment name
  environmentName: ‘ATC-Staging’
@@ -24,18 +24,19 @@ variables:
  
 stages:
 - stage: Archive
-  displayName: Archive stage
-  jobs: 
-  — job: Archive
-    pool:
-      vmImage: $(vmImageName)
-    steps: 
+ displayName: Archive stage
+ jobs: 
+ — job: Archive
+ displayName: Archive
+ pool:
+ vmImage: $(vmImageName)
+ steps: 
  — task: AzureAppServiceSettings@1
  inputs:
  azureSubscription: $(azureSubscription)
  appName: $(webAppName)
  resourceGroupName: $(resourceGroupName)
- appSettings: | 
+ appSettings: |
  [
  {
  “name”: “SCM_DO_BUILD_DURING_DEPLOYMENT”,
@@ -55,7 +56,7 @@ stages:
  artifact: drop
  
 - stage: Deploy
- displayName: Deploy Web App
+ displayName: Deploy stage
  dependsOn: Archive
  condition: succeeded()
  jobs:
@@ -69,7 +70,7 @@ stages:
  deploy:
  steps: 
  — task: AzureWebApp@1
- displayName: ‘Azure Web App Deploy: ATC-Staging’
+ displayName: ‘Azure Web App Deploy: PHP Web App Deploy’
  inputs:
  azureSubscription: $(azureSubscription)
  appType: webAppLinux
