@@ -27,7 +27,6 @@ stages:
   displayName: Archive stage
   jobs: 
   — job: Archive
-  displayName: Archive
  pool:
  vmImage: $(vmImageName)
  steps: 
