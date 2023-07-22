@@ -27,9 +27,9 @@ stages:
   displayName: Archive stage
   jobs: 
   — job: Archive
- pool:
- vmImage: $(vmImageName)
- steps: 
+    pool:
+      vmImage: $(vmImageName)
+    steps: 
  — task: AzureAppServiceSettings@1
  inputs:
  azureSubscription: $(azureSubscription)
